@@ -3,15 +3,15 @@ import Addtodo from './components/AddTodo';
 import Header from './components/header';
 import TodoList from './components/todlist';
 
-interface todos{
+interface Todos{
   id: string,
   todoText: string
 }
 
 const App = () => {
- const [todos, setTodos] = React.useState<todos[]>([])
+ const [todos, setTodos] = React.useState<Todos[]>([])
 
- const handleAdd = (todovalue: string) => {
+ const handleAdd = (todovalue: string): void => {
     setTodos([...todos, {
       id: new Date().toString(),
       todoText: todovalue
@@ -29,8 +29,7 @@ const App = () => {
      <main className='flex flex-col items-center justify-center w-1/4 gap-y-2'>
       <Header />
       <Addtodo handleAdd={ handleAdd }/>
-      <TodoList todos={todos} handleDelete={handeDelete}/>
-
+      <TodoList todos={ todos } handleDelete={ handeDelete }/>
      </main>
     </div>
   )

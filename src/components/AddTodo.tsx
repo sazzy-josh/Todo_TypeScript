@@ -8,6 +8,12 @@ interface AddtodoProps{
 const Addtodo: React.FunctionComponent<AddtodoProps> = ({handleAdd}) => {
     const [todotext, settodoText] = React.useState<string>("")
 
+/**
+ *  returns void 
+ * @param e prevents Default refresh onClick of button
+ * 
+ */
+
     const submitTodo = (e): void => {
        e.preventDefault()
        handleAdd(todotext)

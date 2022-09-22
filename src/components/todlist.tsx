@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Cards from './todoCards';
 
 interface ITodoListProps {
   todos: {
@@ -14,12 +15,10 @@ const TodoList: React.FunctionComponent<ITodoListProps> = ({todos , handleDelete
     <>
      {todos.map((todo) => {
       return (
-         <span key={todo.id} className="flex justify-between w-full" >
-          <p>{todo.todoText}</p>
-          <p className='rotate-45 cursor-pointer text-lg hover:text-red-400 hover:font-bold' onClick={() => handleDelete(todo.id)}>+</p>
-         </span>
-      )
-     } )}
+         <Cards key={todo.id} todo={todo}  deleteTodo={handleDelete}/>
+       )
+     } 
+    )}
     </>
     
   );
