@@ -8,7 +8,7 @@ let day = Weekdays[d.getDay()]
 
 
   return (
-    <div>
+    <div className='w-full text-center'>
         Hey!!What are we doing this {day} 😉
     </div>
   );

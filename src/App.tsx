@@ -20,16 +20,16 @@ const App = () => {
 
  }
 
- const handeDelete = () => {
-
+ const handeDelete = (id: string) => {
+      setTodos(todos.filter(todo => todo.id !== id ))
  }
 
   return (
-    <div className='bg-slate-100 h-screen w-screen p-4'>
-     <main className='flex flex-col items-center justify-center'>
+    <div className='bg-slate-100 h-screen w-screen p-2 flex justify-center ' >
+     <main className='flex flex-col items-center justify-center w-1/4 gap-y-2'>
       <Header />
       <Addtodo handleAdd={ handleAdd }/>
-      <TodoList todos={todos}/>
+      <TodoList todos={todos} handleDelete={handeDelete}/>
 
      </main>
     </div>
