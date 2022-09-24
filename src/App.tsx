@@ -4,6 +4,8 @@ import Error from './components/Error';
 import Header from './components/header';
 import TodoList from './components/todlist';
 
+
+
 interface Todos{
   id: string,
   todoText: string
@@ -13,6 +15,28 @@ const App = () => {
  const [todos, setTodos] = React.useState<Todos[]>([])
  const [errorText, setErrorText] = React.useState<string>("")
  const [error, setError] = React.useState<boolean>(false)
+
+
+
+
+ React.useEffect(() => {
+  const setMessage = setTimeout(() => {
+    setError(false)
+    // this will clear Timeout
+    // when component unmount like in willComponentUnmount
+    // and show will not change to true
+  },3000)
+
+  return () => {
+   clearTimeout(setMessage)
+    // useEffect will run only when the value of todos changes
+    // if you pass a empty array,
+    // like this - []
+    // than clearTimeout will run once after component mounts.
+    // this value changes (useEffect re-run)
+    
+  }
+}, [ todos ,setTodos ])
 
  const handleAdd = (todovalue: string): void => {
     setTodos([...todos, {
@@ -28,14 +52,15 @@ const App = () => {
  }
 
   return (
-    <div className='bg-slate-100 h-screen w-screen p-2 flex justify-center ' >
-     <main className='flex flex-col items-center justify-center w-1/4 gap-y-2'>
-      <Header />
-      {error && <Error errorMessage={ errorText } />}
-      <Addtodo handleAdd={ handleAdd } errorMessage ={setErrorText} handleError={setError}/>
-      <TodoList todos={ todos } handleDelete={ handeDelete }/>
-     </main>
-    </div>
+    <div
+     className='bg-slate-100 h-screen w-screen p-2 flex justify-center'>
+      <main className='flex flex-col items-center justify-center w-1/4 gap-y-2'>
+        <Header />
+        {error && <Error errorMessage={ errorText } />}
+        <Addtodo handleAdd={ handleAdd } errorMessage ={setErrorText} handleError={setError}/>
+        <TodoList todos={ todos } handleDelete={ handeDelete }/>
+      </main>
+  </div>
   )
 };
 

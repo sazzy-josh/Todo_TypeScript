@@ -7,8 +7,12 @@ interface AddtodoProps{
    handleError:  React.Dispatch<React.SetStateAction<boolean>>
 }
 
+
+
+
 const Addtodo: React.FunctionComponent<AddtodoProps> = ({handleAdd, errorMessage , handleError}) => {
     const [todotext, settodoText] = React.useState<string>("")
+    
     
     
 /**
@@ -25,7 +29,7 @@ const Addtodo: React.FunctionComponent<AddtodoProps> = ({handleAdd, errorMessage
         handleError(false)
         handleAdd(todotext)
         settodoText("")
-       }
+       } 
     }
     
   return (
