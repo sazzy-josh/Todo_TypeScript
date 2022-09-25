@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { BsPlus } from 'react-icons/bs'
+// import { motion } from "framer-motion"
+
 
 interface AddtodoProps{
    handleAdd: (todotext: string) => void,
