@@ -6,7 +6,7 @@ import TodoList from './components/todlist';
 
 
 
-interface Todos{
+ export interface Todos{
   id: string,
   todoText: string
 }
@@ -15,6 +15,8 @@ const App = () => {
  const [todos, setTodos] = React.useState<Todos[]>([])
  const [errorText, setErrorText] = React.useState<string>("")
  const [error, setError] = React.useState<boolean>(false)
+ 
+
 
 
 
@@ -51,14 +53,18 @@ const App = () => {
       setTodos(todos.filter(todo => todo.id !== id ))
  }
 
+//  const handleEdit = (id: string) => {
+     
+//  }
+
   return (
     <div
      className='bg-slate-100 h-screen w-screen p-2 flex justify-center'>
-      <main className='flex flex-col items-center justify-center w-1/4 gap-y-2'>
+      <main className='flex flex-col items-center justify-center md:w-1/4 gap-y-2'>
         <Header />
-        {error && <Error errorMessage={ errorText } />}
-        <Addtodo handleAdd={ handleAdd } errorMessage ={setErrorText} handleError={setError}/>
-        <TodoList todos={ todos } handleDelete={ handeDelete }/>
+        {error && <Error errorMessage={ errorText } />} 
+         <Addtodo handleAdd={ handleAdd } errorMessage ={setErrorText} handleError={setError}/>
+        <TodoList todos={ todos } handleDelete={ handeDelete } setTodos= { setTodos }/>
       </main>
   </div>
   )

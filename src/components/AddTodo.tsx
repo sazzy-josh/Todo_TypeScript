@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { BsPlus } from 'react-icons/bs'
-// import { motion } from "framer-motion"
 
 
 interface AddtodoProps{
@@ -26,7 +25,7 @@ const Addtodo: React.FunctionComponent<AddtodoProps> = ({handleAdd, errorMessage
        e.preventDefault()
        if(todotext.trim().length === 0){
         errorMessage("Please enter task for the day")
-        handleError(true)
+        handleError(true) 
        } else{
         handleError(false)
         handleAdd(todotext)
@@ -37,7 +36,7 @@ const Addtodo: React.FunctionComponent<AddtodoProps> = ({handleAdd, errorMessage
   return (
     <form onSubmit={ submitTodo  } className='w-full'>
       <span className='relative flex items-center w-full'>
-        <input type="text" name="" id="" placeholder='✍🏻 Add item...' value={todotext} onChange={(e: React.ChangeEvent<HTMLInputElement>) => settodoText(e.target.value) } className='flex items-center outline-none placeholder:opacity-60 text-sm p-2 w-full'/>
+        <input type="text" placeholder='✍🏻 Add item...' value={todotext} onChange={(e) => settodoText(e.target.value) } className='flex items-center outline-none placeholder:opacity-60 text-sm p-2 w-full'/>
          <BsPlus className='absolute right-2 cursor-pointer' onClick={ submitTodo }/> 
        </span> 
     </form>
