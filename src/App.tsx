@@ -53,10 +53,6 @@ const App = () => {
       setTodos(todos.filter(todo => todo.id !== id ))
  }
 
-//  const handleEdit = (id: string) => {
-     
-//  }
-
   return (
     <div
      className='bg-slate-100 h-screen w-screen p-2 flex justify-center'>

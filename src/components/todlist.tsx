@@ -15,13 +15,13 @@ interface ITodoListProps {
 
 const TodoList: React.FunctionComponent<ITodoListProps> = ({todos , handleDelete , setTodos}) => {
 
-  const handleEdit = (id: string , todoTxt: string) => {
+  const handleEdit = (id: string , todoTxt: string): void => {
     const existingItem = todos.find((todo) => todo.id === id)
     setTodos([...todos, {
-      id:existingItem.id, todoText: todoTxt
+      ...existingItem,  todoText: todoTxt
     }]
   )}
-  
+
   return (
     <>
      {todos && todos.map((todo) => {
