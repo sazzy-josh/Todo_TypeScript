@@ -16,11 +16,20 @@ interface ITodoListProps {
 const TodoList: React.FunctionComponent<ITodoListProps> = ({todos , handleDelete , setTodos}) => {
 
   const handleEdit = (id: string , todoTxt: string): void => {
-    const existingItem = todos.find((todo) => todo.id === id)
-    setTodos([...todos, {
-      ...existingItem,  todoText: todoTxt
-    }]
-  )}
+    const editedTodo = todos.map((todo) => {
+      if(todo.id === id ){
+        return {...todo , todoText: todoTxt }
+      }
+    })
+     setTodos(editedTodo)
+    // const existingItem = todos.find((todo) => todo.id === id)
+    // if(existingItem){
+    //   setTodos([...todos, {
+    //     ...existingItem,  todoText: todoTxt
+    //   }]
+    //  )
+    // }  
+  }
 
   return (
     <>
