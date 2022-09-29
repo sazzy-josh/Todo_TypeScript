@@ -19,8 +19,9 @@ const TodoList: React.FunctionComponent<ITodoListProps> = ({todos , handleDelete
     const editedTodo = todos.map((todo) => {
       if(todo.id === id ){
         return {...todo , todoText: todoTxt }
-      }
+      } return 
     })
+    console.log(editedTodo)
      setTodos(editedTodo)
     // const existingItem = todos.find((todo) => todo.id === id)
     // if(existingItem){

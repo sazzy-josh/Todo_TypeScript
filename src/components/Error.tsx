@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { AiOutlineWarning } from 'react-icons/ai'
-import { motion } from "framer-motion"
 
 interface IErrorProps {
     errorMessage?: string

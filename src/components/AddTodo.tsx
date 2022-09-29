@@ -21,7 +21,7 @@ const Addtodo: React.FunctionComponent<AddtodoProps> = ({handleAdd, errorMessage
  * @param e prevents Default refresh onClick of button
  */
 
-    const submitTodo = (e): void => {
+    const submitTodo = (e: any): void => {
        e.preventDefault()
        if(todotext.trim().length === 0){
         errorMessage("Please enter task for the day")
