@@ -12,13 +12,19 @@ import TodoList from './components/todlist';
 }
 
 const App = () => {
- const [todos, setTodos] = React.useState<Todos[]>([])
+   
+
+ const mytodos = localStorage.getItem('Todos') ? JSON.parse(localStorage.getItem('Todos')): [] //logic to store todos to local storage.
+
+ const [todos, setTodos] = React.useState<Todos[]>(mytodos)
  const [errorText, setErrorText] = React.useState<string>("")
  const [error, setError] = React.useState<boolean>(false)
  
 
 
-
+ React.useEffect(() => {
+   localStorage.setItem('Todos' , JSON.stringify(todos) )
+  },[todos])
 
 
  React.useEffect(() => {

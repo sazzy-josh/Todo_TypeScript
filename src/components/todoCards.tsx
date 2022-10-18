@@ -27,7 +27,7 @@ const Cards: React.FunctionComponent<ICardsProps> = ({ deleteTodo , todo , handl
     <>
     {
       !edit ? (
-        <span className="flex justify-between w-full" >
+        <span className="flex justify-between w-full border rounded-md bg-slate-300 p-2 shadow-sm" >
          <p>{todo.todoText}</p>
         <span className='flex justify-center items-center gap-x-2'>
          <MdEdit className='text-xs cursor-pointer' onClick={() => setEdit(true)} />
@@ -35,8 +35,8 @@ const Cards: React.FunctionComponent<ICardsProps> = ({ deleteTodo , todo , handl
         </span>
       </span>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <input type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => seteditText(e.target.value)} value={editText} />
+        <form onSubmit={handleSubmit} className='w-full'>
+          <input type="text" className='w-full outline-none p-1' autoFocus onChange={(e: React.ChangeEvent<HTMLInputElement>) => seteditText(e.target.value)} value={editText} />
         </form>
       )
     }   

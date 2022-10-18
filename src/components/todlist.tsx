@@ -1,4 +1,3 @@
-import { text } from 'node:stream/consumers';
 import * as React from 'react';
 import { Todos } from '../App';
 import Cards from './todoCards';
@@ -9,27 +8,15 @@ interface ITodoListProps {
    id: string,
    todoText: string
   }[],
-  handleDelete:  (id: string) => void
+  handleDelete:  (id: string) => void 
   setTodos: React.Dispatch<React.SetStateAction<Todos[]>>
 }
 
 const TodoList: React.FunctionComponent<ITodoListProps> = ({todos , handleDelete , setTodos}) => {
 
   const handleEdit = (id: string , todoTxt: string): void => {
-    const editedTodo = todos.map((todo) => {
-      if(todo.id === id ){
-        return {...todo , todoText: todoTxt }
-      } return 
-    })
-    console.log(editedTodo)
-     setTodos(editedTodo)
-    // const existingItem = todos.find((todo) => todo.id === id)
-    // if(existingItem){
-    //   setTodos([...todos, {
-    //     ...existingItem,  todoText: todoTxt
-    //   }]
-    //  )
-    // }  
+    let editedTodo = [...todos]
+    setTodos(editedTodo.map((todo) => todo.id === id ? {...todo ,todoText: todoTxt} : todo ))
   }
 
   return (
