@@ -1,14 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 
-interface ITodoProps {
-}
+interface ITodoProps {}
 
 const Todo: React.FunctionComponent<ITodoProps> = (props) => {
-  return (
-    <>
-    Todo
-    </>
-  )
+  return <>Todo</>;
 };
 
 export default Todo;
